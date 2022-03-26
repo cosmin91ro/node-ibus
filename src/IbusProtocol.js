@@ -2,8 +2,8 @@ var util = require('util');
 var Transform = require('stream').Transform;
 util.inherits(IbusProtocol, Transform);
 
-var log = require('log'),
-    clc = require('cli-color');
+const log = require("log");
+clc = require('cli-color');
 
 function IbusProtocol(options) {
     options = options || {};

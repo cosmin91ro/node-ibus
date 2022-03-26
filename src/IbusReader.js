@@ -30,7 +30,6 @@ function init() {
     ibusInterface.startup();
 }
 
-require("log-node")();
 // main start
 init();
 
