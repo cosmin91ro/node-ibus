@@ -3,7 +3,8 @@ var IbusDevices = require('./IbusDevices.js');
 
 // config
 //var device = '/dev/ttys003';
-var device = '/dev/cu.usbserial-AH02DHFV';
+// var device = '/dev/cu.usbserial-AH02DHFV';
+var device = process.argv[2];
 
 // data
 var ibusInterface = new IbusInterface(device);
