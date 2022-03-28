@@ -47,7 +47,7 @@ var IbusInterface = function(devicePath) {
                 log.info('[IbusInterface] Port Open [' + device + ']');
 
                 serialPort.on('data', function(data) {
-                    //log.debug('[IbusInterface] Data on port: ', data);
+                    log.debug('[IbusInterface] Data on port: ', data);
 
                     lastActivityTime = process.hrtime();
                 });
@@ -103,7 +103,7 @@ var IbusInterface = function(devicePath) {
             if (error) {
                 log.error('[IbusInterface] Failed to write: ' + error);
             } else {
-                log.info('[IbusInterface] ', clc.white('Wrote to Device: '), dataBuf, resp);
+                log.debug('[IbusInterface] ', clc.white('Wrote to Device: '), dataBuf, resp);
 
                 serialPort.drain(function(error) {
                     log.debug(clc.white('Data drained'));
