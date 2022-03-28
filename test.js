@@ -2,14 +2,13 @@ var IbusInterface = require('./index.js').IbusInterface;
 var IbusDevices = require('./index.js').IbusDevices;
 
 // config
-//var device = '/dev/ttys003';
-var device = '/dev/cu.usbserial-A601HPGR';
+var device = process.argv[2];
 
 // data
 var ibusInterface = new IbusInterface(device);
 
 // events
-//process.on('SIGINT', onSignalInt);
+process.on('SIGINT', onSignalInt);
 ibusInterface.on('data', onIbusData);
 
 // implementation
@@ -28,4 +27,4 @@ function onIbusData(data) {
 }
 
 // main start
-//ibusInterface.startup();
+ibusInterface.startup();
