@@ -2,8 +2,6 @@ var IbusInterface = require('./IbusInterface.js');
 var IbusDevices = require('./IbusDevices.js');
 
 // config
-//var device = '/dev/ttys003';
-// var device = '/dev/cu.usbserial-AH02DHFV';
 var device = process.argv[2];
 
 // data
@@ -31,10 +29,11 @@ function onIbusData(data) {
 }
 
 function logIbusPacket(data) {
-    console.log('[IbusReader]', 'Id: 	  ', data.id);
-    console.log('[IbusReader]', 'From: 	  ', IbusDevices.getDeviceName(data.src));
-    console.log('[IbusReader]', 'To: 	  ', IbusDevices.getDeviceName(data.dst));
-    console.log('[IbusReader]', 'Message: ', data.msg, '\n');
+    console.log('[IbusReader]', 'Id: 	        ', data.id);
+    console.log('[IbusReader]', 'From: 	        ', IbusDevices.getDeviceName(data.src));
+    console.log('[IbusReader]', 'To: 	        ', IbusDevices.getDeviceName(data.dst));
+    console.log('[IbusReader]', 'Message:       ', data.msg);
+    console.log('[IbusReader]', 'Message (text):', data.msg.toString(), '\n');
 }
 
 function init() {
