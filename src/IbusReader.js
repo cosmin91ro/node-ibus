@@ -21,6 +21,16 @@ function onSignalInt() {
 }
 
 function onIbusData(data) {
+    if (process.env.LOG_ONLY) {
+        if (data.src === process.env.LOG_ONLY || data.dst === process.env.LOG_ONLY) {
+            logIbusPacket(data);
+        }
+    } else {
+        logIbusPacket(data);
+    }
+}
+
+function logIbusPacket(data) {
     console.log('[IbusReader]', 'Id: 	  ', data.id);
     console.log('[IbusReader]', 'From: 	  ', IbusDevices.getDeviceName(data.src));
     console.log('[IbusReader]', 'To: 	  ', IbusDevices.getDeviceName(data.dst));
