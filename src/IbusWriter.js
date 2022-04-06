@@ -27,3 +27,6 @@ ibusInterface.sendMessage({
     dst: packet[2],
     msg: packet.slice(3)
 });
+setTimeout(() => {
+    process.exit(0);
+}, 2000)
